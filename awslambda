@@ -1,0 +1,46 @@
+AWS lambda
+-----------
+
+Language : python
+Database : Mysql
+Extra : -----
+
+
+Api's
+-----
+
+1)create a new lambda function
+
+Endpoint Name : /lambda/genarate
+Desc          : whenever request came to create a new lambda function.
+protocol      : {"Endpointname" : "","function":"","userid":""}
+
+2)update a new lambda function
+
+Endpoint Name : /lambda/update
+Desc          : whenever request came to update a existing lambda function.
+protocol      : {"containerid" : "","function":"","userid":""}
+Note : here endpoint is not updatable only lambda function is updated
+
+3)current status of lambda function
+
+Endpoint Name : /lambda/status
+Desc          : whenever request came for status of lambda server
+protocol      : {"containerid" : "","userid":""}
+
+4)Delete lambda function
+
+Endpoint Name : /lambda/delete
+Desc          : whenever request came for status of lambda server
+protocol      : {"containerid" : "","userid":""}
+
+----------------------------------------------------------------------------------
+
+Protocol for service to api gateway
+
+{"containerid":"","imageid":"","status":""}
+
+
+
+
+
