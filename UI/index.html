@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en" ng-app="AWSApp">
   <head>
-    <title>Lunch Checker</title>
+    <title>AWS Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
     <style>
@@ -12,33 +13,50 @@
   </head>
   <body>
    <div class="container" ng-controller="AWSController">
-     <h1 class="text-center">Register Function</h1>
-     <form class="form-horizontal">
+     <h1 class="text-center">AWS Lambda Function</h1>
+     <form class="form-horizontal" ng-submit="generatelambda(lambda)">
       <div class="form-group">
         <label class="control-label col-sm-2">Language:</label>
         <div class="col-sm-4">
-          <select class="form-control" ng-model="selectedLang">
+          <select class="form-control" ng-model="lambda.language">
             <!-- <option selected disabled>Select</option> -->
             <option  ng-repeat="lang in languages" value="{{lang}}">{{lang}}</option>
           </select>
         </div>
       </div>
       <div class="form-group">
+        <label class="control-label col-sm-2">Endpoint Name:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" ng-model="lambda.endpointname" />
+        </div>
+      </div>
+	<div class="form-group">
+        <label class="control-label col-sm-2">Methods</label>
+        <div class="col-sm-4">
+          <select class="form-control" ng-model="lambda.method">
+            <!-- <option selected disabled>Select</option> -->
+            <option value="POST">POST</option>
+		<option value="GET">GET</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label class="control-label col-sm-2">Function Name:</label>
         <div class="col-sm-4"> 
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" ng-model="lambda.functionname" />
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2">Description:</label>
         <div class="col-sm-4"> 
-          <textarea class="form-control" rows="5" id="comment"></textarea>
+          <textarea class="form-control" rows="5" id="comment" ng-model="lambda.description"></textarea>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2">Function:</label>
         <div class="col-sm-8"> 
-          <textarea class="form-control" rows="20" id="comment">{{selectedLang}}</textarea>
+          <textarea id="textbox" class="form-control" rows="20" ng-model="lambda.function">{{lambda.language}}</textarea>
         </div>
       </div>
       <div class="form-group"> 

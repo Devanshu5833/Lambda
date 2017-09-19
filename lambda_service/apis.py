@@ -50,7 +50,7 @@ def generate_new_function():
     #return url
     returnurl = "http://localhost:" + str(port)+""+data['endpointname']
 
-    return json.dumps({"status":"success","url":returnurl}) 
+    return json.dumps({"status":"success", "url":returnurl})
 
 #curl -X POST http://10.103.3.186:8090/lambda/genarate
 @app.route('/lambda/update',methods = ['put'])
